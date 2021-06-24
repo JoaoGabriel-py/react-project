@@ -2,9 +2,9 @@ import { FormEvent, useState } from 'react';
 import { useParams } from 'react-router-dom'
 
 import logoImg from '../assets/images/logo.svg'
-import { Button } from '../components/Button/index';
-import { Question } from '../components/Question/index';
-import { RoomCode } from '../components/RoomCode/index';
+import { Button } from '../components/Button/Button';
+import { Question } from '../components/Question/Question';
+import { RoomCode } from '../components/RoomCode';
 import { useAuth } from '../hooks/useAuth';
 import { useRoom } from '../hooks/useRoom';
 import { database } from '../services/firebase';
@@ -51,14 +51,10 @@ export function Room() {
         setNewQuestion('');
     }
 
-    async function handleLikeQuestion(questionId: string, likeId: string | undefined) {
-        if (likeId) {
-            await database.ref(`rooms/${roomId}/questions/${questionId}/likes/${likeId}`).remove();
-        } else {
-            await database.ref(`rooms/${roomId}/questions/${questionId}/likes`).push({
-                authorId: user?.id,
-            });
-        }
+    async function handleLikeQuestion(questionId: string, hasLiked: boolean) {
+        await database.ref(`rooms/${roomId}/questions/${questionId}/likes`).push({
+            authorId: user?.id,
+        });
     }
 
     return (
@@ -105,10 +101,10 @@ export function Room() {
                                 author={question.author}
                             >
                                 <button
-                                    className={`like-button ${question.likeId ? 'liked' : ''}`}
+                                    className={`like-button ${question.hasLiked ? 'liked' : ''}`}
                                     type="button"
                                     aria-label="Marcar como gostei"
-                                    onClick={() => handleLikeQuestion(question.id, question.likeId)}
+                                    onClick={() => handleLikeQuestion(question.id, question.hasLiked)}
                                 >
                                     { question.likeCount > 0 && <span>{question.likeCount}</span> }
                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

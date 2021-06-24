@@ -2,9 +2,9 @@ import { FormEvent, useState } from 'react';
 import { useParams } from 'react-router-dom'
 
 import logoImg from '../assets/images/logo.svg'
-import { Button } from '../components/Button/index';
-import { Question } from '../components/Question/index';
-import { RoomCode } from '../components/RoomCode/index';
+import { Button } from '../components/Button/Button';
+import { Question } from '../components/Question/Question';
+import { RoomCode } from '../components/RoomCode';
 import { useAuth } from '../hooks/useAuth';
 import { useRoom } from '../hooks/useRoom';
 import { database } from '../services/firebase';
@@ -51,9 +51,11 @@ export function Room() {
         setNewQuestion('');
     }
 
-    async function handleLikeQuestion(questionId: string, likeId: string | undefined) {
-        if (likeId) {
-            await database.ref(`rooms/${roomId}/questions/${questionId}/likes/${likeId}`).remove();
+    async function handleLikeQuestion(questionId: string, likeId: string) {
+        if (liekId) {
+            await database.ref(`rooms/${roomId}/questions/${questionId}/likes/${likeId}`).push({
+                authorId: user?.id,
+            });
         } else {
             await database.ref(`rooms/${roomId}/questions/${questionId}/likes`).push({
                 authorId: user?.id,

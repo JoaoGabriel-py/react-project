@@ -27,5 +27,5 @@ Letmeask é uma aplicação web que segue com base na técnica Single Page Appli
 - Library do Firebase.
 
 **Conclusão**
-Finalizado o projeto seguindo a trilha focada em front-end utilizando o ReactJS, sendo o Diego Fernandes o educador da trilha, consegui dar meus primeiros passos dentro de uma nova linguagem que nunca explorei, conquistando um novo conhecimento bem intensivo, porém detalhado e explicado pelo professor.
-Junto para o próximo nível! #NeverStopLearning
+<p>Finalizado o projeto seguindo a trilha focada em front-end utilizando o ReactJS, sendo o Diego Fernandes o educador da trilha, consegui dar meus primeiros passos dentro de uma nova linguagem que nunca explorei, conquistando um novo conhecimento bem intensivo, porém detalhado e explicado pelo professor.</p>
+<span>Juntos para o próximo nível! #NeverStopLearning</span>

@@ -11,6 +11,8 @@ import { database } from '../services/firebase';
 
 import '../styles/auth.scss';
 
+
+
 export function Home() {
     const history = useHistory();
     const { user, signInWithGoogle } = useAuth();

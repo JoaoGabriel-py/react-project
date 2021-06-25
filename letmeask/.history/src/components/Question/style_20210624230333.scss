@@ -8,17 +8,17 @@
         margin-top: 8px;
     }
 
+    &.answered {
+
+    }
+
     &.highlighted {
-        background: #FDF2E2;
-        border: 1px solid #f09819;
+        background: #f4f0ff;
+        border: 1px solid #835afd;
 
         footer .user-info span {
             color: #29292e;
         }
-    }
-
-    &.answered {
-        background: #dbdcdd;
     }
 
     p {
@@ -67,10 +67,10 @@
                 color: #737380;
 
                 &.liked {
-                    color: #f09819;
+                    color: #835afd;
 
                     svg path {
-                        stroke: #f09819;
+                        stroke: #835afd;
                     }
                 }
             }
